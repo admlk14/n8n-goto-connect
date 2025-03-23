@@ -1,9 +1,9 @@
 {
-  "name": "n8n-goto-connect",
+  "name": "n8n-nodes-goto-connect",
   "version": "0.1.0",
   "description": "",
   "keywords": [
-    "n8n-goto-connect"
+    "n8n-nodes-goto-connect"
   ],
   "license": "MIT",
   "homepage": "",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/admlk14/n8n-goto-connect.git"
+    "url": "https://github.com/admlk14/n8n-nodes-goto-connect.git"
   },
   "engines": {
     "node": ">=18.10",
