@@ -1,13 +1,15 @@
 import { 
   ICredentialType,
-  IAuthenticateGeneric,
-  INodeProperties 
+  IOAuth2Options,
 } from 'n8n-workflow';
 
 export class GoToConnectOAuth2Api implements ICredentialType {
   name = 'goToConnectOAuth2Api';
+  extends = ['oAuth2Api'];
   displayName = 'GoTo Connect OAuth2 API';
-  properties: INodeProperties[] = [{
+  documentationUrl = 'https://developer.goto.com/guides/Get%20Started/02_HOW_createClient/';
+
+  properties: ICredentialProperties[] = [{
     displayName: 'Client ID',
     name: 'clientId',
     type: 'string',
@@ -18,14 +20,17 @@ export class GoToConnectOAuth2Api implements ICredentialType {
     type: 'string',
     typeOptions: { password: true },
     default: '',
+  }, {
+    displayName: 'Scope',
+    name: 'scope',
+    type: 'hidden',
+    default: 'GoToConnect', // Verify required scope with GoTo docs
   }];
 
-  authenticate: IAuthenticateGeneric = {
-    type: 'generic',
-    properties: {
-      headers: {
-        Authorization: '=Bearer {{$credentials.accessToken}}',
-      },
-    },
+  authenticate: IOAuth2Options = {
+    authorizationUrl: 'https://api.goto.com/oauth/v2/authorize',
+    tokenUrl: 'https://api.goto.com/oauth/v2/token',
+    authType: 'body', // Verify auth method with GoTo docs [1]
+    grantType: 'authorizationCode',
   };
 }
