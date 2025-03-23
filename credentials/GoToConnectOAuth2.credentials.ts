@@ -24,7 +24,10 @@ export class GoToConnectOAuth2Api implements ICredentialType {
     displayName: 'Scope',
     name: 'scope',
     type: 'hidden',
-    default: 'GoToConnect', // Verify required scope with GoTo docs
+    default:  'GoToConnect',          // Base scope
+          'webrtc.v1.write',      // Click-to-call
+      'call-events.v1.read',  // Call reports
+         'presence.v1.read'      // Presence status
   }];
 
   authenticate: IOAuth2Options = {
