@@ -15,3 +15,5 @@
 | /callhistorysubscriptions | GET | - |
 
 ## Webhook Implementation
+
+This structure follows n8n's recommended patterns while implementing GoTo Connect's specific API requirements [1][2]. Remember to implement proper error handling and pagination based on your use case requirements.
